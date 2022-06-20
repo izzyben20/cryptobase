@@ -13,6 +13,7 @@ const Navbar = () => {
     try {
       await logout();
       navigate('/');
+      toggle()
     } catch (e) {
       alert(e.message);
     }
@@ -28,7 +29,7 @@ const Navbar = () => {
       </div>
 
       {user?.email ? (
-        <div>
+        <div className='hidden md:flex'>
           <Link className="p-4" to="/account">
             Account
           </Link>
