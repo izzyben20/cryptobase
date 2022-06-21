@@ -24,7 +24,7 @@ const Account = () => {
     <section className="max-w-[1140px] mx-auto">
       <div className='flex justify-between items-center rounded-div py-8 my-12'>
         <div>
-          <h1 className='text-xl font-semibold'>Account</h1>
+          <h1 className='text-xl font-semibold md:text-sm'>Account</h1>
           <div>
             <p>Welcome, {user?.email}</p>
           </div>
