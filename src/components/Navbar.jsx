@@ -20,7 +20,8 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="rounded-div flex items-center justify-between h-[60px] font-bold">
+    <>
+    <nav className={showMenu ? "left-0 top-0 fixed rounded-div flex items-center justify-between h-[60px] font-bold z-20 border border-b-2" : "rounded-div flex items-center justify-between h-[60px] font-bold z-20"}>
       <Link to="/">
         <h1 className="text-2xl">Cryptobase</h1>
       </Link>
@@ -56,12 +57,14 @@ const Navbar = () => {
       >
         {showMenu ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
       </div>
+    </nav>
+    <div>
       {/* mobile menu */}
       <div
         className={
           showMenu
-            ? 'md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10'
-            : 'fixed left-[-100%] top-20 h-[90%] flex flex-col items-center justify-between ease-in duration-300'
+            ? 'md:hidden fixed left-0 top-14 pt-8 flex flex-col items-center justify-between w-full h-[100vh] bg-primary ease-in duration-300 z-10'
+            : 'fixed left-[-100%] top-14 pt-8 h-[100vh] flex flex-col items-center justify-between ease-in duration-300 z-10'
         }
       >
         <ul className="w-full p-4">
@@ -95,7 +98,8 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </nav>
+    </div>
+    </>
   );
 };
 
