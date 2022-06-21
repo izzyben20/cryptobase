@@ -1,31 +1,31 @@
 import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { doc, onSnapshot, updateDoc } from 'firebase/firestore'
+import { doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AiOutlineClose } from 'react-icons/ai';
-import { UserContext } from '../context/AuthContext'
+import { UserContext } from '../context/AuthContext';
 
 const SavedCoin = () => {
   const [coins, setCoins] = useState([]);
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     onSnapshot(doc(db, 'users', `${user?.email}`), (doc) => {
-      setCoins(doc.data()?.watchList)
-    })
-  },[user?.email])
+      setCoins(doc.data()?.watchList);
+    });
+  }, [user?.email]);
 
-  const coinPath = doc(db, 'users', `${user?.email}`)
+  const coinPath = doc(db, 'users', `${user?.email}`);
   const deletePath = async (passedId) => {
     try {
-      const result = coins.filter(item => item.id !== passedId)
+      const result = coins.filter((item) => item.id !== passedId);
       await updateDoc(coinPath, {
-        watchList: result
-      })
-    } catch(e){
-      alert(e.message)
+        watchList: result,
+      });
+    } catch (e) {
+      alert(e.message);
     }
-  }
+  };
 
   return (
     <div>
@@ -68,7 +68,10 @@ const SavedCoin = () => {
                   </Link>
                 </td>
                 <td className="pl-8">
-                  <AiOutlineClose className="cursor-pointer text-accent" onClick={() => deletePath(coin.id) } />
+                  <AiOutlineClose
+                    className="cursor-pointer text-accent"
+                    onClick={() => deletePath(coin.id)}
+                  />
                 </td>
               </tr>
             ))}

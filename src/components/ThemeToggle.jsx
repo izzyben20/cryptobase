@@ -7,12 +7,18 @@ const ThemeToggle = () => {
   return (
     <section>
       {theme === 'dark' ? (
-        <div className='flex items-center cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-          <HiSun className='text-primary text-2xl mr-2' /> Light Mode
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          <HiSun className="text-primary text-2xl mr-2" /> Light Mode
         </div>
       ) : (
-        <div className='flex items-center cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-          <HiMoon className='text-primary text-2xl mr-2' /> Dark Mode
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          <HiMoon className="text-primary text-2xl mr-2" /> Dark Mode
         </div>
       )}
     </section>
