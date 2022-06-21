@@ -68,7 +68,7 @@ const SavedCoin = () => {
                   </Link>
                 </td>
                 <td className="pl-8">
-                  <AiOutlineClose className="cursor-pointer" onClick={() => deletePath(coin.id) } />
+                  <AiOutlineClose className="cursor-pointer text-accent" onClick={() => deletePath(coin.id) } />
                 </td>
               </tr>
             ))}
