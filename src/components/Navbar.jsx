@@ -63,8 +63,8 @@ const Navbar = () => {
       <div
         className={
           showMenu
-            ? 'md:hidden fixed left-0 top-14 pt-8 flex flex-col items-center justify-between w-full h-[100vh] bg-primary ease-in duration-300 z-10'
-            : 'fixed left-[-100%] top-14 pt-8 h-[100vh] flex flex-col items-center justify-between ease-in duration-300 z-10'
+            ? 'md:hidden fixed left-0 top-14 pt-8 flex flex-col items-center justify-between w-full h-[95vh] bg-primary ease-in duration-300 z-10'
+            : 'fixed left-[-100%] top-14 pt-8 h-[95vh] flex flex-col items-center justify-between ease-in duration-300 z-10'
         }
       >
         <ul className="w-full p-4">
