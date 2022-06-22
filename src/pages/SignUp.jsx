@@ -1,4 +1,4 @@
-import { useReducer, useContext, useState } from 'react';
+import { useReducer, useContext, useState, useId } from 'react';
 import { AiOutlineMail, AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/AuthContext';
@@ -10,6 +10,7 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { signUp } = useContext(UserContext);
+  const id = useId()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,25 +29,27 @@ const SignUp = () => {
         {error && <p className="bg-red-300 p-3 my-2">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="my-4">
-            <label>Email</label>
+            <label htmlFor={`email${id}`}>Email</label>
             <div className="my-2 w-full relative rounded-lg shadow-xl">
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full p-2 border border-input bg-primary rounded-xl"
                 type={'email'}
-                placeholder="Email"
+                placeholder="example@example.com"
+                id={`email${id}`}
               />
               <AiOutlineMail className="absolute right-2 top-3 text-gray-500" />
             </div>
           </div>
           <div className="my-4">
-            <label>Password</label>
+            <label htmlFor={`password${id}`}>Password</label>
             <div className="my-2 w-full relative rounded-lg shadow-xl">
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-2 border border-input bg-primary rounded-xl"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
+                id={`password${id}`}
               />
               {showPassword ? (
                 <AiFillEye
