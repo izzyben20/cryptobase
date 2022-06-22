@@ -1,5 +1,5 @@
 import { useReducer, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import ThemeToggle from './ThemeToggle';
 import { UserContext } from '../context/AuthContext';
@@ -8,6 +8,8 @@ const Navbar = () => {
   const [showMenu, toggle] = useReducer((s) => !s, false);
   const { user, logout } = useContext(UserContext);
   const navigate = useNavigate();
+  const location = useLocation()
+  console.log(location)
 
   const handleSignOut = async () => {
     try {
@@ -44,12 +46,12 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="hidden md:block">
-            <Link to="/signin" className="p-4 hover:text-accent">
+            <Link to="/signin" className={location.pathname === '/signin' ? "hidden" : "p-4 hover:text-accent"}>
               Sign In
             </Link>
             <Link
               to="/signup"
-              className="bg-button text-btnText px-4 py-2 ml-2 rounded-xl hover:shadow-2xl"
+              className={location.pathname === '/signup' ? 'hidden' : "bg-button text-btnText px-4 py-2 ml-2 rounded-xl hover:shadow-2xl"}
             >
               Sign Up
             </Link>
