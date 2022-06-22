@@ -48,7 +48,7 @@ const Footer = () => {
               <div className="flex justify-center md:justify-end py-4 md:py-0 md:pb-4 mt-[-1rem]">
                 <ThemeToggle />
               </div>
-              <p className="text-center pb-3 md:text-right font-medium md:mb-4">
+              <p className="text-center pb-2 md:text-right font-medium md:mb-4">
                 Sign up for crypto news
               </p>
               <div>
@@ -58,7 +58,7 @@ const Footer = () => {
                     type={'email'}
                     placeholder="Enter your email"
                   />
-                  <button className="bg-button text-btnText px-4 p-2 w-full rounded-lg shadow-2xl hover:shadow-2xl md:w-auto my-2 font-semibold">
+                  <button className="bg-button text-btnText p-2 w-full rounded-lg shadow-2xl hover:shadow-2xl md:w-auto my-2 font-semibold">
                     Sign up
                   </button>
                 </form>
